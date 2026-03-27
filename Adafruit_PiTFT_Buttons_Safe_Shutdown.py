@@ -1,6 +1,9 @@
-# ==================================================
-#  Adafruit Mini PiTFT Shutdown and Restart Buttons
-# ==================================================
+# =====================================================
+#  Adafruit Mini PiTFT Shutdown and Restart Buttons v1
+# =====================================================
+#
+# This version is depecrated. Use v2 for Python 3.14+
+#
 # This is a simple python script to use the buttons on the Adafruit Mini PiTFT screen to initiate a safe shutdown and a safe reboot. 
 #
 # I am not the author, that credit goes to mikeysklar on the Adafruit forums.
