@@ -14,9 +14,9 @@ The Buttons script will make the first (top) button initiate a safe shutdown, an
 
 I'm running these on the latest OctoPi with the Mini PiTFT: depending on your specific setup, you may need to tweak things a bit. Stats display and buttons are separated into separate scripts that are run as system services: you can use either or both scripts.
 
-=====================================
+==================
 Initial setup
-=====================================
+==================
 
 Copy PiTFT_Buttons.py and/or PiTFT_Stats.py to /home/pi/
 
@@ -27,9 +27,9 @@ Optional: to avoid possible permission errors on /dev/spidev*, add pi to the spi
 sudo usermod -aG spi,gpio pi
 
 
-=====================================
+==================
 Set Up Python Virtual Environment
-=====================================
+==================
 
 >> Some of these commands may be redundant or unnecessary in your specific setup, but I ran them all to stamp out errors about missing packages
 
@@ -80,9 +80,9 @@ python /home/pi/PiTFT_Buttons.py &
 >> This will run both scripts in the background until next reboot. Ensure that stats are showing on the screen and that the reboot button works. If all is well, proceed to create the services that will ensure they run with each boot with adequate permissions
 
 
-=====================================
+==================
 Create Buttons Service
-=====================================
+==================
 
 sudo nano /etc/systemd/system/PiTFT-buttons.service
 
@@ -103,9 +103,9 @@ WantedBy=multi-user.target[/code]
 >>>>> Write Out and Exit, saving changes
 
 
-=====================================
+==================
 Create Stats Service
-=====================================
+==================
 
 sudo nano /etc/systemd/system/PiTFT-stats.service
 
@@ -131,9 +131,9 @@ WantedBy=multi-user.target[/code]
 >>>>> Write Out and Exit, saving changes
 
 
-===========================================================
+==================
 Optional: Disable 90-second delay for OctoPrint shutdown:
-===========================================================
+==================
 
 sudo systemctl edit octoprint.service
 
@@ -143,9 +143,9 @@ sudo systemctl edit octoprint.service
 TimeoutStopSec=10 [/code]
 >>>>> Write Out and Exit, saving changes
 
-===========================================================
+==================
 Enable Services
-===========================================================
+==================
 
 sudo systemctl daemon-reexec
 sudo systemctl daemon-reload
@@ -158,9 +158,9 @@ sudo systemctl start PiTFT-stats.service
 
 
 
-===========================================================
+==================
 If you need to test or see live logs:
-===========================================================
+==================
 
 sudo systemctl status PiTFT-buttons.service
 sudo systemctl status PiTFT-stats.service
